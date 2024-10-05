@@ -7,8 +7,9 @@ let userek = [
 ]
 
 function belepes() {
-    let felh = document.getElementById('felhasznalo').value
-    let jelsz = document.getElementById('jelszo').value
+    //console.log('teszt')
+    let felh = document.getElementById('login_felh').value
+    let jelsz = document.getElementById('login_jelszo').value
 
     if (!(felh && jelsz)){
         alert("Nem adtál meg adatokat!")
@@ -44,4 +45,22 @@ function belepes() {
             }
             }
 */          
+}
+
+function regisztral() {
+    let felh = document.getElementById('reg_felh').value
+    let jelsz = document.getElementById('reg_jelszo').value
+
+    if (!(felh && jelsz)){
+        alert("Nem adtál meg adatokat!")
+        return
+    }
+    
+    let idx = userek.findIndex((user)=>user.username == felh)
+        if(idx ==-1){
+            userek.push({username:felh, password:jelsz})
+            alert('Sikeres regisztráció!')
+            return
+        }
+        alert('Ez a felhasználónév már foglalt!')
 }
